@@ -28,7 +28,7 @@ export default {
     },
     computed:{
         isActive(){
-           return this.$route.path.indexOf(this.path) !== -1; 
+           return this.$route.path.indexOf(this.path) !== -1;
         },
         CactiveStyle(){
             return this.isActive ? {color:this.activeStyle} : {}
@@ -44,8 +44,8 @@ export default {
 
 <style>
 #flex_div .flex_item  img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
 }
 #flex_div .flex_item {
   flex: 1;

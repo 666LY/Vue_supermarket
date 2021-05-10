@@ -21,11 +21,11 @@ export default {
     props: {
         interval: {
             type: Number,
-            default: 3000
+            default:2000
         },
         animDuration: {
             type: Number,
-            default: 300
+            default:200
         },
         moveRatio: {
             type: Number,
@@ -34,7 +34,7 @@ export default {
         showIndicator: {
             type: Boolean,
             default: true
-        }
+        },
     },
     data: function () {
         return {

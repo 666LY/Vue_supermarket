@@ -1,20 +1,22 @@
 <template>
     <div class="good-item clearfix">
         <div class="content">
-            <a :href=" gooditem.link ">
+            <div @click="item_click">
                 <div class="item_img">
-                    <img :src="gooditem.show.img" alt="">
+                    <img v-lazy="showIMG" alt="" @load="imageLoad"> <!--@load监听图片img加载-->
                 </div>
                 <div class="item_text">
                     <p>{{gooditem.title}}</p>
                     <span>￥ {{gooditem.price}}</span>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
+
 export  default  {
     props:{
         gooditem:{
@@ -23,11 +25,24 @@ export  default  {
                 return {};
             }
         }
-    }
+    },
+    methods:{
+        imageLoad(){
+                this.$bus.$emit('imageLoad')
+        },
+        item_click(){
+            this.$router.push('/detail/'+this.gooditem.iid)
+        },
+    },
+    computed: {
+        showIMG() {
+            return this.gooditem.image || this.gooditem.show.img
+        }
+    },
 }
 </script>
 
-<style>
+<style scoped>
 .good-item {
     width: 50%;
     float: left;
@@ -47,7 +62,7 @@ export  default  {
 .item_img img{
     opacity: 1;
     width: 96%;
-    height: 250px;
+    /*height: 250px;*/
 }
 .item_text p{
     box-sizing: border-box;
@@ -72,6 +87,7 @@ export  default  {
     position: relative;
     top: 1px;
     height: 25px;
+    font-size: 16px;
     line-height: 25px;
     font-family: JDZhengHT-EN-Regular;
 }

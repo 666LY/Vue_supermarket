@@ -8,6 +8,8 @@ const main  = () => import('@/views/home/home')
 const jd = () => import('@/views/jd/jd')
 const login = () => import('@/views/login/login')
 const home= () => import('@/views/main/main')
+const Bscroll = () => import('@/views/BScroll/BScroll')
+const Detail = () => import('../views/detail/detail')
 
 const routes = [
     {
@@ -20,7 +22,7 @@ const routes = [
     },
     {
         path:'/jd',
-        component: jd
+        component: Bscroll
     },
     {
         path:'/login',
@@ -30,6 +32,10 @@ const routes = [
         path:'/main',
         component: main
     },
+    {
+        path:'/detail/:iid',  //添加请求参数属性加:
+        component:Detail
+    }
 ]
 
 const router = new Router({

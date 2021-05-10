@@ -1,15 +1,32 @@
 <template>
-  <div>
-      主要index
-  </div>
+    <div class="main">
+        <nav_topbar/>
+        <cartlist/>
+        <cart-pay/>
+    </div>
 </template>
 
 <script>
-export default {
 
+import nav_topbar from "./ChildMain/nav_topbar";
+import Cartlist from "./ChildMain/Cartlist";
+import CartPay from "@/views/main/ChildMain/CartPay";
+export default {
+  components:{
+      nav_topbar,
+      Cartlist,
+      CartPay
+  },
 }
 </script>
 
-<style>
-
+<style scoped>
+.nav_Top {
+    height: 44px;
+    background: #FFFFFF;
+}
+.nav_Top span {
+    text-align: center;
+    color: #333333;
+}
 </style>

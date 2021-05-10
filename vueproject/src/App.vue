@@ -1,12 +1,14 @@
 <template>
   <div id="app">
       <maintoopar/>
-      <router-view/>
+      <keep-alive exclude="Detail">     <!--//这里写路由的名字-->
+          <router-view/>
+      </keep-alive>
   </div>
 </template>
 
 <script>
-import  maintoopar from 'components/content/Maintoopar/Maintoobar'
+import  maintoopar from '@/components/content/Maintoopar/Maintoobar'
 export default {
   name: 'App',
   components: {
